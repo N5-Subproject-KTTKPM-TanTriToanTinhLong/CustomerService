@@ -27,11 +27,11 @@ public class CustomerService {
         return customerRepository.findAll();
     }
 
-    public ResponseTemplateVO getCustomerWithOrder(Long userId) {
+    public ResponseTemplateVO getCustomerWithFood(Long id) {
         ResponseTemplateVO vo = new ResponseTemplateVO();
-        Customer customer = customerRepository.findById(userId).get();
+        Customer customer = customerRepository.findById(id).get();
         vo.setCustomer(customer);
-        Food food = restTemplate.getForObject("http://localhost:8080/food/"
+        Food food = restTemplate.getForObject("http://localhost:8080/api/food/"
                                 + customer.getFoodId(),
                         Food.class);
 

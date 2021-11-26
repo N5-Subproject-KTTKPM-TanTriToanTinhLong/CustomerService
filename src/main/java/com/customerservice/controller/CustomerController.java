@@ -27,6 +27,6 @@ public class CustomerController
 
     @GetMapping("/{id}")
     public ResponseTemplateVO getCustomerWithFood(@PathVariable("id") Long id){
-        return customerService.getCustomerWithOrder(id);
+        return customerService.getCustomerWithFood(id);
     }
 }
