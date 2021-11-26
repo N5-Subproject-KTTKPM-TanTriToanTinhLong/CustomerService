@@ -6,6 +6,7 @@ import com.customerservice.entity.Food;
 import com.customerservice.repository.CustomerRepository;
 import com.customerservice.vo.ResponseTemplateVO;
 import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
+import io.github.resilience4j.retry.annotation.Retry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +32,7 @@ public class CustomerService {
         return customerRepository.findAll();
     }
 
+    @Retry(name = "basic")
     @RateLimiter(name = "multiRate", fallbackMethod = "fallBackMethod")
     public ResponseEntity<ResponseTemplateVO> getCustomerWithFood(Long id) {
         ResponseTemplateVO vo = new ResponseTemplateVO();
@@ -45,7 +47,7 @@ public class CustomerService {
     }
 
     private ResponseEntity<ExceptionHandling> fallBackMethod(RuntimeException exception){
-        ExceptionHandling handling = new ExceptionHandling("Quá nhiều yêu cầu xin hãy reload lại vài giây sau");
+        ExceptionHandling handling = new ExceptionHandling("Server gặp sự cố, vui lòng refresh trang vài giây sau");
         return new ResponseEntity<ExceptionHandling>(handling, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
