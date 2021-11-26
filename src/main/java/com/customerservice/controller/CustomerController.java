@@ -15,12 +15,12 @@ public class CustomerController
     @Autowired
     private CustomerService customerService;
 
-    @PostMapping("/")
+    @PostMapping()
     public Customer save(@RequestBody Customer customer){
         return customerService.save(customer);
     }
 
-    @GetMapping("/")
+    @GetMapping()
     public List<Customer> findAll(){
         return customerService.findAll();
     }
