@@ -1,7 +1,12 @@
-
 spring:
   application:
     name: CUSTOMER-SERVICE
+
+  config:
+    import: "optional:configserver:"
+    cloud:
+      config:
+        uri: http://localhost:8888/
 
 eureka:
   client:
@@ -13,12 +18,3 @@ eureka:
       defaultZone: http://localhost:8761/eureka
     instance:
       hostname: localhost
-spring:
-  application:
-    name: customer-service
-
-  config:
-    import: "optional:configserver:"
-  cloud:
-    config:
-      uri: http://localhost:8888/
