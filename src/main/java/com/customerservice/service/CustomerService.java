@@ -38,7 +38,7 @@ public class CustomerService {
         ResponseTemplateVO vo = new ResponseTemplateVO();
         Customer customer = customerRepository.findById(id).get();
         vo.setCustomer(customer);
-        Food food = restTemplate.getForObject("http://localhost:8080/api/food/"
+        Food food = restTemplate.getForObject("https://n5-subprj-food.herokuapp.com/api/food"
                                 + customer.getFoodId(),
                         Food.class);
 
