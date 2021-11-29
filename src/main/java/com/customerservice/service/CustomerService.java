@@ -32,7 +32,7 @@ public class CustomerService {
         return customerRepository.findAll();
     }
 
-    @Retry(name = "basic")
+//    @Retry(name = "basic")
     @RateLimiter(name = "multiRate", fallbackMethod = "fallBackMethod")
     public ResponseEntity<ResponseTemplateVO> getCustomerWithFood(Long id) {
         ResponseTemplateVO vo = new ResponseTemplateVO();
