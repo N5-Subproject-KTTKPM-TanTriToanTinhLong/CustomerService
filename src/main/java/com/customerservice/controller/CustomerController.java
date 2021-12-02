@@ -32,7 +32,7 @@ public class CustomerController
         return customerService.getCustomerWithFood(id);
     }
 
-    @Value("{message}")
+    @Value("${message}")
     private String message;
 
     @GetMapping("/hello")
