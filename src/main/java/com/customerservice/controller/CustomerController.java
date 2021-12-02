@@ -9,6 +9,7 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -24,8 +25,12 @@ public class CustomerController
     }
 
     @GetMapping()
-    public List<Customer> findAll(){
-        return customerService.findAll();
+    public List<ResponseTemplateVO> findAll(){
+        List<ResponseTemplateVO> vo = new ArrayList<>();
+        customerService.findAll().forEach(customer -> {
+            vo.add(customerService.getCustomerWithFood(customer.getCustomerId()).getBody());
+        });
+        return vo;
     }
 
     @GetMapping("/{id}")
