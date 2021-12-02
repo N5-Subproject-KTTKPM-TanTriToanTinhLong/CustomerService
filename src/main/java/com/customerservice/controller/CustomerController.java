@@ -4,6 +4,7 @@ import com.customerservice.entity.Customer;
 import com.customerservice.service.CustomerService;
 import com.customerservice.vo.ResponseTemplateVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,5 +30,13 @@ public class CustomerController
     @GetMapping("/{id}")
     public ResponseEntity<ResponseTemplateVO> getCustomerWithFood(@PathVariable("id") Long id){
         return customerService.getCustomerWithFood(id);
+    }
+
+    @Value("{message}")
+    private String message;
+
+    @GetMapping("/hello")
+    public String hello(){
+        return message;
     }
 }
