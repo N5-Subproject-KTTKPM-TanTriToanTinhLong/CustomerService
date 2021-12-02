@@ -15,7 +15,7 @@ resilience4j:
   ratelimiter:
     instances:
       multiRate:
-        limitForPeriod: 5
+        limitForPeriod: 10
         limitRefreshPeriod: 5s
         timeoutDuration: 5s
 
