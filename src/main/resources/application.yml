@@ -5,8 +5,8 @@ spring:
   application:
     name: CUSTOMER-SERVICE
 
-#  config:
-#    import: "optional:configserver:"
+  config:
+    import: "optional:configserver:"
 #    cloud:
 #      config:
 #        enabled: true
