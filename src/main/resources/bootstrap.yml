@@ -1,5 +1,0 @@
-spring:
-  cloud:
-    config:
-      enabled: false
-      uri: https://n5-subprj-cloudserver.herokuapp.com/
