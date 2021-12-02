@@ -13,7 +13,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/customer")
-@RefreshScope
 public class CustomerController
 {
     @Autowired
