@@ -46,8 +46,8 @@ public class CustomerService {
         return new ResponseEntity<ResponseTemplateVO>(vo, HttpStatus.OK);
     }
 
-    private ResponseEntity<ExceptionHandling> fallBackMethod(RuntimeException exception){
+    private ResponseEntity<ResponseTemplateVO> fallBackMethod(RuntimeException exception){
         ExceptionHandling handling = new ExceptionHandling("Server gặp sự cố, vui lòng refresh trang vài giây sau");
-        return new ResponseEntity<ExceptionHandling>(handling, HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<ResponseTemplateVO>(new ResponseTemplateVO(new Customer(), new Food()), HttpStatus.OK);
     }
 }
