@@ -10,9 +10,6 @@ eureka:
     hostname: n5-subprj-customer.herokuapp.com
     homePageUrl: https://${eureka.instance.hostName}/
     home-page-url-path: https://${eureka.instance.hostName}
-  client:
-    serviceUrl:
-      defaultZone: https://n5-subprj-eurekaserver.herokuapp.com/eureka
 
 resilience4j:
   ratelimiter:
