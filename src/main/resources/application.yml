@@ -10,7 +10,7 @@ spring:
     cloud:
       config:
         enabled: true
-        uri: https://n5-subprj-cloudserver.herokuapp.com/
+        uri: https://n5-subprj-cloudserver.herokuapp.com
 
 eureka:
   instance:
